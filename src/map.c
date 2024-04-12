@@ -37,7 +37,7 @@ void renderOverheadMap() {
     }
 
     /* Draw rays */
-    setDrawColor(200, 100, 50, 255);
+    setDrawColor(350, 50, 50, 200);
     for(i = 0; i < WINDOW_WIDTH; i++) {
         Vector3f ray;
         if(fabs(homogeneousVectorMagnitude(&rays[i].hRay)) < fabs(homogeneousVectorMagnitude(&rays[i].vRay)))
@@ -47,10 +47,10 @@ void renderOverheadMap() {
         drawLine((int)(playerPos.x * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)(playerPos.y * HUD_MAP_SIZE / (float)MAP_PIXEL_HEIGHT + mapYOffset),
                 (int)((playerPos.x + ray.x) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)((playerPos.y + ray.y) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapYOffset);
         if (slowRenderMode) {
-            setDrawColor(200, 0, 0, 255);
+            setDrawColor(360, 10, 0, 200);
             drawLine((int)(playerPos.x * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)(playerPos.y * HUD_MAP_SIZE / (float)MAP_PIXEL_HEIGHT + mapYOffset),
                     (int)((playerPos.x + PLAYER_SIZE * playerDir.x) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)((playerPos.y + PLAYER_SIZE * playerDir.y) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapYOffset);
-            setDrawColor(200, 100, 50, 255);
+            setDrawColor(230, 50, 50, 200);
             SDL_Delay(2);
             presentRenderer();
         }
@@ -63,6 +63,6 @@ void renderOverheadMap() {
 
     if (slowRenderMode)
         slowRenderMode = 0;
-    setDrawColor(128, 128, 128, 255);
+    setDrawColor(120, 120, 120, 180);
     presentRenderer();
 }
